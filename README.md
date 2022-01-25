@@ -8,7 +8,10 @@ Before Retropie boots a game, it first runs a runcommand file. This script can b
 
 ## Demo
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/wDSLc2lCGLs/0.jpg)](https://www.youtube.com/watch?v=wDSLc2lCGLs)
+https://user-images.githubusercontent.com/13403691/150954365-21222b36-9cbd-4a9c-9b7c-337bc19ffcb6.mp4
+
+Alternatively, see on [Youtube](https://www.youtube.com/watch?v=wDSLc2lCGLs).
+
 
 ## Wiring
 
@@ -51,4 +54,4 @@ You will probably get this error `ValueError: No Hardware I2C on (scl,sda)=(3, 2
 
 Find button configurations by Google Image searching: [<game name> controls site:gamesdatabase.org](https://www.google.com/search?tbm=isch&q=pole%20position%20controls%20site:gamesdatabase.org).
 
-Add games as a new row in the [game_buttons_config.csv](game_buttons_config.csv) file.
+Add games as a new row in the [rpi_button_lights_database.csv](rpi_button_lights_database.csv) file.
