@@ -26,7 +26,7 @@ def load_csv(csv_path: str) -> LightsConfiguration:
     global NUMBER_OF_BUTTONS
     configuration = {}
     with open(csv_path, newline='') as csvfile:
-        reader = csv.reader(csvfile, delimiter=';', quotechar='|')
+        reader = csv.reader(csvfile, delimiter=',', quotechar='|')
         header = next(reader)  # Skip header
         NUMBER_OF_BUTTONS = len(header) - 2
         for row in reader:
