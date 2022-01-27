@@ -101,8 +101,22 @@ def transmit_light_all_on() -> PCA9685:
     pca = initialise_pca9685()
 
     # Set PWM of lights
-    for i, light in range(NUMBER_OF_BUTTONS):
+    for i in range(NUMBER_OF_BUTTONS):
         pca.channels[i].duty_cycle = PWM_ON
+
+    return pca
+
+
+def transmit_light_all_off() -> PCA9685:
+    """
+    Switches all the lights off. Intended to be run when the arcade machine is turned off.
+    """
+    # Initialisation
+    pca = initialise_pca9685()
+
+    # Set PWM of lights
+    for i in range(NUMBER_OF_BUTTONS):
+        pca.channels[i].duty_cycle = PWM_OFF
 
     return pca
 
@@ -142,7 +156,9 @@ if __name__ == '__main__':
     if argc <= 1:
         exit(1)
 
-    if argc == 1 and system_name == 'reset':
+    if argc == 2 and system_name == 'all_on':
         transmit_light_all_on()
+    elif argc == 2 and system_name == 'all_off':
+        transmit_light_all_off()
     else:
         transmit_light_configuration(system_name, rom_filename, csv_path='/usr/local/etc/rpi_button_lights_database.csv')

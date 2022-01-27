@@ -41,14 +41,34 @@ You will probably get this error `ValueError: No Hardware I2C on (scl,sda)=(3, 2
 3. Run the following commands:
 
 
+    # Main file
     pip3 install -r requirements.txt
     cp rpi_button_lights.py /usr/local/bin/
+    cd /usr/local/bin/
     chmod a+x rpi_button_lights.py
+    cd -
+    
+    # Database
     cp rpi_button_lights_database.csv /usr/local/etc/
-    cp runcommand-onstart.sh /opt/retropie/configs/all
+    
+    # Game launch script
+    cp event_hook_scripts/runcommand-onstart.sh /opt/retropie/configs/all
+    cd /opt/retropie/configs/all
     chmod a+x runcommand-onstart.sh
-    cp runcommand-onend.sh /opt/retropie/configs/all
+    cd -
+    
+    # Game quit script
+    cp event_hook_scripts/runcommand-onend.sh /opt/retropie/configs/all
+    cd /opt/retropie/configs/all
     chmod a+x runcommand-onend.sh
+    cd -
+    
+    # Arcade shutdown script
+    mkdir ~/.emulationstation/scripts
+    mkdir ~/.emulationstation/scripts/quit
+    cp event_hook_scripts/rpi_arcade_lights_quit.sh ~/.emulationstation/scripts/quit
+    cd ~/.emulationstation/scripts/quit
+    chmod a+x rpi_arcade_lights_quit.sh
 
 ## Adding new games
 
