@@ -63,12 +63,10 @@ You will probably get this error `ValueError: No Hardware I2C on (scl,sda)=(3, 2
     chmod a+x runcommand-onend.sh
     cd -
     
-    # Arcade shutdown script
-    mkdir ~/.emulationstation/scripts
-    mkdir ~/.emulationstation/scripts/quit
-    cp event_hook_scripts/rpi_arcade_lights_quit.sh ~/.emulationstation/scripts/quit
-    cd ~/.emulationstation/scripts/quit
-    chmod a+x rpi_arcade_lights_quit.sh
+    # Arcade boot and shutdown script
+    sudo cp event_hook_scripts/arcade-button-lights.service /etc/systemd/system
+    sudo chmod a+x arcade-button-lights.service
+    sudo systemctl enable arcade-button-lights
 
 ## Adding new games
 

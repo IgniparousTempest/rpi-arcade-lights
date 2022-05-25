@@ -1,0 +1,14 @@
+[Unit]
+Description=Switches on all button lights at boot and switches them off afterwards
+After=multi-user.target
+
+[Service]
+Type=oneshot
+User=pi # Necessary to user the pi user's version of python with the installed requirements
+ExecStart=/usr/local/bin/rpi_button_lights.py "all_on"
+RemainAfterExit=true
+ExecStop=/usr/local/bin/rpi_button_lights.py "all_off"
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
